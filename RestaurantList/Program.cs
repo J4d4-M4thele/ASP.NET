@@ -1,7 +1,16 @@
+using RestaurantList.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//CH5:Adding connection to database
+builder.Services.AddDbContext<RestaurantListContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"))
+);
 
 var app = builder.Build();
 
