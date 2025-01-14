@@ -12,12 +12,14 @@ namespace RestaurantList.Controllers
         {
             _logger = logger;
         }
-
+        //models are linked to context
+        //controller handles requests to render views
         public IActionResult Index()
         {
+            //looks to return view .cshtml
             return View();
         }
-
+        //IActionResult returns view object
         public IActionResult Privacy()
         {
             return View();
