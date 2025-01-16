@@ -22,7 +22,7 @@
         <ul>
             @foreach (var item in Model.RestaurantDishes)
             {
-                <li>@item.Dish.Name: @item.Dish.Price.ToString("N2") Rands</li>
+                <li>@item.Dish.Name: R @item.Dish.Price.ToString("N2")</li>
             }
         </ul>
     </div>
