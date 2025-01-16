@@ -29,8 +29,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//CH9:setting default page to render
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=RestaurantList}/{action=Index}/{id?}");
 
 app.Run();
