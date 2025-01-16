@@ -17,10 +17,16 @@ namespace RestaurantList.Controllers
         }
 
         //asynchronously fetches Restaurant records from database table
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            //renders Index.cshtml
-            return View(await _context.Restaurants.ToListAsync());
+            var restaurants = from r in _context.Restaurants
+                              select r;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                restaurants = restaurants.Where(r => r.Name.Contains(searchString));
+                return View(await restaurants.ToListAsync());
+            }
+            return View(await restaurants.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
