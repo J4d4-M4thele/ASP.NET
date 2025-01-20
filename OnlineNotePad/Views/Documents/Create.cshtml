@@ -1,4 +1,6 @@
 ﻿@model OnlineNotePad.Models.Document
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> userManager
 
 @{
     ViewData["Title"] = "Create";
@@ -21,7 +23,7 @@
             </div>
             <div class="form-group">
                 <!--gets the UserId of the current user (logged in)-->
-            <input type="hidden" asp-for="UserId" class="form-control" value="" />
+            <input type="hidden" asp-for="UserId" class="form-control" value="@userManager.GetUserId(User)" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
