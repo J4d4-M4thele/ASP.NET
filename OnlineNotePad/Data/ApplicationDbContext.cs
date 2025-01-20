@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OnlineNotePad.Models;
 
 namespace OnlineNotePad.Data
 {
@@ -9,5 +10,7 @@ namespace OnlineNotePad.Data
             : base(options)
         {
         }
+        //allows for interaction with Documents Table
+        public DbSet<Document> Documents { get; set; }
     }
 }
