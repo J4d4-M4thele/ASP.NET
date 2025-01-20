@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineNotePad.Data;
 using OnlineNotePad.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineNotePad.Controllers
 {
+    [Authorize]
     public class DocumentsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -47,7 +49,7 @@ namespace OnlineNotePad.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", document.UserId);
+           
             return View(document);
         }
 
