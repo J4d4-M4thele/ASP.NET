@@ -29,17 +29,15 @@
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.10/js/froala_editor.pkgd.min.js'></script>
+    <script>
+        var editor = new FroalaEditor('#editor');
+    </script>
 </div>
-
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.10/js/froala_editor.pkgd.min.js'></script>
-<script>
-    var editor = '#editor'
-</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
